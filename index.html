@@ -1,0 +1,1539 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sukhakarta Event Decoration - Premium Wedding & Event Decoration Services</title>
+    <meta name="description" content="Sukhakarta Event Decoration - Creating magical moments with exquisite decoration services for weddings, receptions, mehendi, and birthday celebrations">
+   <!-- <link rel="stylesheet" href="styles.css"> -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+
+<style>/* Reset and Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    line-height: 1.6;
+    color: #1a1a1a;
+    background-color: #ffffff;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+
+/* Loading Spinner */
+.loading-spinner {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+}
+
+.spinner-content {
+    text-align: center;
+}
+
+.spinner-wrapper {
+    position: relative;
+    width: 80px;
+    height: 80px;
+    margin: 0 auto 24px;
+}
+
+.spinner-outer {
+    width: 80px;
+    height: 80px;
+    border: 4px solid #e5e7eb;
+    border-radius: 50%;
+    animation: pulse 2s infinite;
+}
+
+.spinner-inner {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 80px;
+    height: 80px;
+    border: 4px solid #3b82f6;
+    border-top: 4px solid transparent;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+.spinner-content h2 {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #3b82f6;
+    margin-bottom: 8px;
+}
+
+.spinner-content p {
+    color: #6b7280;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+@keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.5; }
+}
+
+/* Navigation */
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 50;
+    background-color: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid #e5e7eb;
+}
+
+.nav-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+
+.nav-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 64px;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.logo:hover {
+    transform: scale(1.05);
+}
+
+.logo-icon {
+    width: 32px;
+    height: 32px;
+    color: #3b82f6;
+}
+
+.logo-text {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #3b82f6;
+}
+
+.desktop-menu {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+}
+
+.nav-link {
+    background: none;
+    border: none;
+    color: #6b7280;
+    font-weight: 500;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.nav-link:hover {
+    color: #3b82f6;
+}
+
+.mobile-menu-btn {
+    display: none;
+    background: none;
+    border: none;
+    padding: 8px;
+    cursor: pointer;
+    border-radius: 8px;
+    transition: background-color 0.3s ease;
+}
+
+.mobile-menu-btn:hover {
+    background-color: #f3f4f6;
+}
+
+.menu-icon {
+    width: 24px;
+    height: 24px;
+    color: #3b82f6;
+}
+
+.mobile-menu {
+    border-top: 1px solid #e5e7eb;
+    background-color: #ffffff;
+    padding: 1rem 0;
+}
+
+.mobile-nav-link {
+    display: block;
+    width: 100%;
+    text-align: left;
+    padding: 8px 16px;
+    background: none;
+    border: none;
+    color: #6b7280;
+    font-weight: 500;
+    cursor: pointer;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    margin-bottom: 4px;
+}
+
+.mobile-nav-link:hover {
+    color: #3b82f6;
+    background-color: #f3f4f6;
+}
+
+.mobile-btn-container {
+    padding: 0 16px;
+    margin-top: 16px;
+}
+
+/* Buttons */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    font-weight: 500;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    border: none;
+    font-size: 14px;
+}
+
+.btn-primary {
+    background-color: #3b82f6;
+    color: white;
+    padding: 8px 16px;
+}
+
+.btn-primary:hover {
+    background-color: #2563eb;
+    transform: scale(1.05);
+}
+
+.btn-outline {
+    background-color: transparent;
+    color: #3b82f6;
+    border: 1px solid #3b82f6;
+    padding: 8px 16px;
+}
+
+.btn-outline:hover {
+    background-color: #f3f4f6;
+    transform: scale(1.05);
+}
+
+.btn-lg {
+    font-size: 1.125rem;
+    padding: 12px 32px;
+}
+
+.btn-full {
+    width: 100%;
+}
+
+.btn-icon {
+    width: 16px;
+    height: 16px;
+}
+
+/* Main Content */
+.main-content {
+    padding-top: 64px;
+}
+
+.hidden {
+    display: none;
+}
+
+/* Hero Section */
+.hero {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, rgba(59, 130, 246, 0.1) 0%, rgba(255, 255, 255, 1) 50%, rgba(147, 197, 253, 0.1) 100%);
+    overflow: hidden;
+}
+
+.hero-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: url('https://images.unsplash.com/photo-1465146344425-f00d5f5c8f07');
+    background-size: cover;
+    background-position: center;
+    opacity: 0.1;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 10;
+    text-align: center;
+    padding: 0 1rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.hero-icon {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 24px;
+}
+
+.hero-icon svg {
+    width: 64px;
+    height: 64px;
+    color: #3b82f6;
+    animation: bounce 2s infinite;
+}
+
+.hero-title {
+    font-size: clamp(2.5rem, 5vw, 4.5rem);
+    font-weight: 700;
+    margin-bottom: 24px;
+    background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.hero-subtitle {
+    font-size: clamp(1.125rem, 2vw, 1.5rem);
+    color: #6b7280;
+    margin-bottom: 32px;
+    max-width: 768px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.hero-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    align-items: center;
+}
+
+.scroll-indicator {
+    position: absolute;
+    bottom: 32px;
+    left: 50%;
+    transform: translateX(-50%);
+    animation: bounce 2s infinite;
+}
+
+.scroll-mouse {
+    width: 24px;
+    height: 40px;
+    border: 2px solid #3b82f6;
+    border-radius: 12px;
+    display: flex;
+    justify-content: center;
+    padding-top: 8px;
+}
+
+.scroll-dot {
+    width: 4px;
+    height: 12px;
+    background-color: #3b82f6;
+    border-radius: 2px;
+    animation: pulse 2s infinite;
+}
+
+@keyframes bounce {
+    0%, 20%, 53%, 80%, 100% { transform: translate3d(0, 0, 0); }
+    40%, 43% { transform: translate3d(0, -30px, 0); }
+    70% { transform: translate3d(0, -15px, 0); }
+    90% { transform: translate3d(0, -4px, 0); }
+}
+
+/* Section Styles */
+.section-header {
+    text-align: center;
+    margin-bottom: 4rem;
+}
+
+.section-title {
+    font-size: clamp(2rem, 4vw, 2.5rem);
+    font-weight: 700;
+    color: #3b82f6;
+    margin-bottom: 16px;
+}
+
+.section-subtitle {
+    font-size: 1.125rem;
+    color: #6b7280;
+    max-width: 512px;
+    margin: 0 auto;
+}
+
+/* About Section */
+.about {
+    padding: 80px 0;
+    background-color: rgba(147, 197, 253, 0.05);
+}
+
+.about-content {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 48px;
+    align-items: center;
+}
+
+.about-text h3 {
+    font-size: 2rem;
+    font-weight: 600;
+    color: #3b82f6;
+    margin-bottom: 24px;
+}
+
+.about-text p {
+    color: #6b7280;
+    margin-bottom: 24px;
+    line-height: 1.6;
+}
+
+.about-highlight {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding-top: 16px;
+}
+
+.highlight-icon {
+    width: 32px;
+    height: 32px;
+    color: #3b82f6;
+}
+
+.about-highlight span {
+    font-size: 1.125rem;
+    font-weight: 500;
+}
+
+.stats-card {
+    background: white;
+    border-radius: 16px;
+    padding: 32px;
+    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.3s ease;
+}
+
+.stats-card:hover {
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.15);
+}
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+}
+
+.stat-item {
+    text-align: center;
+}
+
+.stat-item h4 {
+    font-size: 3rem;
+    font-weight: 700;
+    color: #3b82f6;
+    margin-bottom: 8px;
+}
+
+.stat-item p {
+    color: #6b7280;
+}
+
+/* Services Section */
+.services {
+    padding: 80px 0;
+    background-color: #ffffff;
+}
+
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 32px;
+}
+
+.service-card {
+    background: white;
+    border-radius: 16px;
+    padding: 32px;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+
+.service-card:hover {
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.15);
+    transform: scale(1.05);
+}
+
+.service-header {
+    text-align: center;
+    margin-bottom: 24px;
+}
+
+.service-icon {
+    width: 48px;
+    height: 48px;
+    color: #3b82f6;
+    margin: 0 auto 16px;
+}
+
+.service-header h3 {
+    font-size: 1.25rem;
+    font-weight: 600;
+}
+
+.service-card p {
+    color: #6b7280;
+    margin-bottom: 16px;
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+.service-features {
+    list-style: none;
+}
+
+.service-features li {
+    font-size: 14px;
+    color: #6b7280;
+    display: flex;
+    align-items: center;
+    margin-bottom: 8px;
+}
+
+.service-features li::before {
+    content: '';
+    width: 8px;
+    height: 8px;
+    background-color: #3b82f6;
+    border-radius: 50%;
+    margin-right: 8px;
+}
+
+/* Gallery Section */
+.gallery {
+    padding: 80px 0;
+    background-color: rgba(147, 197, 253, 0.05);
+}
+
+.gallery-filters {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 16px;
+    margin-bottom: 48px;
+}
+
+.filter-btn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 16px;
+    background: white;
+    border: 1px solid #e5e7eb;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: 500;
+}
+
+.filter-btn:hover {
+    transform: scale(1.05);
+}
+
+.filter-btn.active {
+    background-color: #3b82f6;
+    color: white;
+    border-color: #3b82f6;
+}
+
+.filter-icon {
+    width: 16px;
+    height: 16px;
+}
+
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 32px;
+}
+
+.gallery-item {
+    background: white;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    position: relative;
+    group: hover;
+}
+
+.gallery-item:hover {
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.15);
+}
+
+.gallery-image {
+    position: relative;
+    overflow: hidden;
+}
+
+.gallery-image img {
+    width: 100%;
+    height: 256px;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.gallery-item:hover .gallery-image img {
+    transform: scale(1.1);
+}
+
+.gallery-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.gallery-item:hover .gallery-overlay {
+    opacity: 1;
+}
+
+.gallery-overlay-content {
+    text-align: center;
+    color: white;
+    padding: 16px;
+}
+
+.gallery-overlay h4 {
+    font-size: 1.125rem;
+    font-weight: 600;
+    margin-bottom: 8px;
+}
+
+.gallery-overlay p {
+    font-size: 14px;
+}
+
+/* Contact Section */
+.contact {
+    padding: 80px 0;
+    background-color: #ffffff;
+}
+
+.contact-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    gap: 48px;
+}
+
+.contact-card {
+    background: white;
+    border-radius: 16px;
+    padding: 32px;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.3s ease;
+}
+
+.contact-card:hover {
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.15);
+}
+
+.card-header {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 24px;
+}
+
+.card-icon {
+    width: 24px;
+    height: 24px;
+    color: #3b82f6;
+}
+
+.card-header h3 {
+    font-size: 1.25rem;
+    font-weight: 600;
+}
+
+.contact-info {
+    space-y: 24px;
+}
+
+.info-item {
+    margin-bottom: 24px;
+}
+
+.info-item h4 {
+    font-weight: 600;
+    color: #3b82f6;
+    margin-bottom: 8px;
+}
+
+.info-item p {
+    color: #6b7280;
+}
+
+.quote-content {
+    space-y: 24px;
+}
+
+.event-types h4 {
+    font-weight: 600;
+    color: #3b82f6;
+    margin-bottom: 8px;
+}
+
+.event-types ul {
+    list-style: none;
+    space-y: 8px;
+}
+
+.event-types li {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: #6b7280;
+    margin-bottom: 8px;
+}
+
+.event-types li::before {
+    content: '';
+    width: 8px;
+    height: 8px;
+    background-color: #3b82f6;
+    border-radius: 50%;
+}
+
+.contact-buttons {
+    padding-top: 16px;
+    space-y: 8px;
+}
+
+.contact-buttons .btn {
+    margin-bottom: 8px;
+}
+
+/* Footer */
+.footer {
+    background-color: #3b82f6;
+    color: white;
+    padding: 48px 0;
+}
+
+.footer-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 32px;
+}
+
+.footer-logo {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 16px;
+}
+
+.footer-icon {
+    width: 32px;
+    height: 32px;
+}
+
+.footer-logo h3 {
+    font-size: 2rem;
+    font-weight: 700;
+}
+
+.footer-section p {
+    color: rgba(255, 255, 255, 0.8);
+    line-height: 1.6;
+}
+
+.footer-section h4 {
+    font-size: 1.125rem;
+    font-weight: 600;
+    margin-bottom: 16px;
+}
+
+.footer-section ul {
+    list-style: none;
+    space-y: 8px;
+}
+
+.footer-section ul li {
+    margin-bottom: 8px;
+}
+
+.footer-section ul li button {
+    background: none;
+    border: none;
+    color: rgba(255, 255, 255, 0.8);
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.footer-section ul li button:hover {
+    color: white;
+}
+
+.footer-bottom {
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+    margin-top: 32px;
+    padding-top: 32px;
+    text-align: center;
+}
+
+.footer-bottom p {
+    color: rgba(255, 255, 255, 0.8);
+}
+
+/* Responsive Design */
+@media (min-width: 640px) {
+    .hero-buttons {
+        flex-direction: row;
+        justify-content: center;
+    }
+}
+
+@media (min-width: 768px) {
+    .mobile-menu-btn {
+        display: none;
+    }
+
+    .desktop-menu {
+        display: flex;
+    }
+
+    .about-content {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media (max-width: 767px) {
+    .desktop-menu {
+        display: none;
+    }
+
+    .mobile-menu-btn {
+        display: block;
+    }
+
+    .contact-content {
+        grid-template-columns: 1fr;
+    }
+
+    .contact-card {
+        min-width: auto;
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        padding: 0 0.5rem;
+    }
+
+    .stats-grid {
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+
+    .gallery-filters {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .filter-btn {
+        width: 100%;
+        max-width: 200px;
+        justify-content: center;
+    }
+
+}
+</style>
+<body>
+    <!-- Loading Spinner -->
+    <div id="loading-spinner" class="loading-spinner">
+        <div class="spinner-content">
+            <div class="spinner-wrapper">
+                <div class="spinner-outer"></div>
+                <div class="spinner-inner"></div>
+            </div>
+            <h2>Sukhakarta Event Decoration</h2>
+            <p>Creating Beautiful Memories...</p>
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav id="navbar" class="navbar">
+        <div class="nav-container">
+            <div class="nav-content">
+                <!-- Logo -->
+                <button onclick="scrollToTop()" class="logo">
+                    <svg class="logo-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M6 3h12l4 6-10 13L2 9l4-6z"/>
+                        <path d="M11 3 8 9l4 13 4-13-3-6"/>
+                    </svg>
+                    <span class="logo-text">Sukhakarta</span>
+                </button>
+
+                <!-- Desktop Menu -->
+                <div class="desktop-menu">
+                    <button onclick="scrollToSection('about')" class="nav-link">About</button>
+                    <button onclick="scrollToSection('services')" class="nav-link">Services</button>
+                    <button onclick="scrollToSection('gallery')" class="nav-link">Gallery</button>
+                    <button onclick="scrollToSection('contact')" class="nav-link">Contact</button>
+                    <button onclick="scrollToSection('contact')" class="btn btn-primary">Get Quote</button>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <button id="mobile-menu-btn" class="mobile-menu-btn">
+                    <svg id="menu-icon" class="menu-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <line x1="4" x2="20" y1="6" y2="6"/>
+                        <line x1="4" x2="20" y1="12" y2="12"/>
+                        <line x1="4" x2="20" y1="18" y2="18"/>
+                    </svg>
+                    <svg id="close-icon" class="menu-icon hidden" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="m18 6-12 12"/>
+                        <path d="m6 6 12 12"/>
+                    </svg>
+                </button>
+            </div>
+
+            <!-- Mobile Menu -->
+            <div id="mobile-menu" class="mobile-menu hidden">
+                <button onclick="scrollToSection('about')" class="mobile-nav-link">About</button>
+                <button onclick="scrollToSection('services')" class="mobile-nav-link">Services</button>
+                <button onclick="scrollToSection('gallery')" class="mobile-nav-link">Gallery</button>
+                <button onclick="scrollToSection('contact')" class="mobile-nav-link">Contact</button>
+                <div class="mobile-btn-container">
+                    <button onclick="scrollToSection('contact')" class="btn btn-primary btn-full">Get Quote</button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div id="main-content" class="main-content hidden">
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="hero-bg"></div>
+            <div class="hero-content">
+                <div class="hero-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M6 3h12l4 6-10 13L2 9l4-6z"/>
+                        <path d="M11 3 8 9l4 13 4-13-3-6"/>
+                    </svg>
+                </div>
+                <h1 class="hero-title">Sukhakarta Event Decoration</h1>
+                <p class="hero-subtitle">Creating magical moments with exquisite decoration services for weddings, receptions, mehendi, and birthday celebrations</p>
+                <div class="hero-buttons">
+                    <button onclick="scrollToSection('gallery')" class="btn btn-primary btn-lg">
+                        <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M8 2v4"/>
+                            <path d="M16 2v4"/>
+                            <rect width="18" height="18" x="3" y="4" rx="2"/>
+                            <path d="M3 10h18"/>
+                        </svg>
+                        View Our Work
+                    </button>
+                    <button onclick="scrollToSection('contact')" class="btn btn-outline btn-lg">Get Quote</button>
+                </div>
+            </div>
+            <div class="scroll-indicator">
+                <div class="scroll-mouse">
+                    <div class="scroll-dot"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about" class="about">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">About Sukhakarta</h2>
+                    <p class="section-subtitle">Bringing your dream events to life with creative decoration and meticulous attention to detail</p>
+                </div>
+                <div class="about-content">
+                    <div class="about-text">
+                        <h3>Creating Memorable Experiences</h3>
+                        <p>At Sukhakarta Event Decoration, we specialize in transforming ordinary spaces into extraordinary venues. With years of experience in event decoration, we understand that every celebration is unique and deserves a personalized touch.</p>
+                        <p>From intimate birthday parties to grand wedding receptions, we create stunning visual experiences that leave lasting impressions. Our expertise spans across various event types including weddings, receptions, mehendi ceremonies, and birthday celebrations.</p>
+                        <div class="about-highlight">
+                            <svg class="highlight-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M6 3h12l4 6-10 13L2 9l4-6z"/>
+                            </svg>
+                            <span>Making Every Moment Special</span>
+                        </div>
+                    </div>
+                    <div class="stats-card">
+                        <div class="stats-grid">
+                            <div class="stat-item">
+                                <h4>500+</h4>
+                                <p>Events Decorated</p>
+                            </div>
+                            <div class="stat-item">
+                                <h4>5+</h4>
+                                <p>Years Experience</p>
+                            </div>
+                            <div class="stat-item">
+                                <h4>100%</h4>
+                                <p>Client Satisfaction</p>
+                            </div>
+                            <div class="stat-item">
+                                <h4>24/7</h4>
+                                <p>Support</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Services Section -->
+        <section id="services" class="services">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">Our Services</h2>
+                    <p class="section-subtitle">Comprehensive event decoration services tailored to make your celebrations unforgettable</p>
+                </div>
+                <div class="services-grid">
+                    <div class="service-card">
+                        <div class="service-header">
+                            <svg class="service-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M6 3h12l4 6-10 13L2 9l4-6z"/>
+                            </svg>
+                            <h3>Wedding Decoration</h3>
+                        </div>
+                        <p>Transform your special day with elegant and romantic wedding decorations that create the perfect atmosphere for your celebration.</p>
+                        <ul class="service-features">
+                            <li>Mandap Decoration</li>
+                            <li>Stage Setup</li>
+                            <li>Floral Arrangements</li>
+                            <li>Lighting Design</li>
+                        </ul>
+                    </div>
+                    <div class="service-card">
+                        <div class="service-header">
+                            <svg class="service-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M8 2v4"/>
+                                <path d="M16 2v4"/>
+                                <rect width="18" height="18" x="3" y="4" rx="2"/>
+                                <path d="M3 10h18"/>
+                            </svg>
+                            <h3>Reception Decoration</h3>
+                        </div>
+                        <p>Create stunning reception venues with sophisticated decorations that impress your guests and create lasting memories.</p>
+                        <ul class="service-features">
+                            <li>Table Settings</li>
+                            <li>Backdrop Design</li>
+                            <li>Centerpieces</li>
+                            <li>Ambiance Lighting</li>
+                        </ul>
+                    </div>
+                    <div class="service-card">
+                        <div class="service-header">
+                            <svg class="service-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <rect width="18" height="18" x="3" y="3" rx="2" ry="2"/>
+                                <circle cx="9" cy="9" r="2"/>
+                                <path d="m21 15-3.086-3.086a2 2 0 0 0-2.828 0L6 21"/>
+                            </svg>
+                            <h3>Mehendi Ceremony</h3>
+                        </div>
+                        <p>Add vibrant colors and traditional charm to your mehendi celebrations with authentic and beautiful decorations.</p>
+                        <ul class="service-features">
+                            <li>Traditional Themes</li>
+                            <li>Colorful Draping</li>
+                            <li>Floor Seating</li>
+                            <li>Photo Corners</li>
+                        </ul>
+                    </div>
+                    <div class="service-card">
+                        <div class="service-header">
+                            <svg class="service-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+                                <circle cx="12" cy="7" r="4"/>
+                            </svg>
+                            <h3>Birthday Parties</h3>
+                        </div>
+                        <p>Make birthdays extra special with themed decorations that bring joy and excitement to the celebration.</p>
+                        <ul class="service-features">
+                            <li>Theme-based Decor</li>
+                            <li>Balloon Arrangements</li>
+                            <li>Cake Tables</li>
+                            <li>Photo Booths</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Gallery Section -->
+        <section id="gallery" class="gallery">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">Our Work Gallery</h2>
+                    <p class="section-subtitle">Explore our portfolio of beautifully decorated events that showcase our creativity and attention to detail</p>
+                </div>
+                <div class="gallery-filters">
+                    <button class="filter-btn active" data-filter="wedding">
+                        <svg class="filter-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M6 3h12l4 6-10 13L2 9l4-6z"/>
+                        </svg>
+                        Wedding
+                    </button>
+                    <button class="filter-btn" data-filter="reception">
+                        <svg class="filter-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M8 2v4"/>
+                            <path d="M16 2v4"/>
+                            <rect width="18" height="18" x="3" y="4" rx="2"/>
+                            <path d="M3 10h18"/>
+                        </svg>
+                        Reception
+                    </button>
+                    <button class="filter-btn" data-filter="mehendi">
+                        <svg class="filter-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <rect width="18" height="18" x="3" y="3" rx="2" ry="2"/>
+                            <circle cx="9" cy="9" r="2"/>
+                            <path d="m21 15-3.086-3.086a2 2 0 0 0-2.828 0L6 21"/>
+                        </svg>
+                        Mehendi
+                    </button>
+                    <button class="filter-btn" data-filter="birthday">
+                        <svg class="filter-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+                            <circle cx="12" cy="7" r="4"/>
+                        </svg>
+                        Birthday
+                    </button>
+                </div>
+                <div id="gallery-content" class="gallery-grid">
+                    <!-- Gallery items will be populated by JavaScript -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="contact">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">Get In Touch</h2>
+                    <p class="section-subtitle">Ready to make your event unforgettable? Contact us for a personalized quote and consultation</p>
+                </div>
+                <div class="contact-content">
+                    <div class="contact-card">
+                        <div class="card-header">
+                            <svg class="card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M6 3h12l4 6-10 13L2 9l4-6z"/>
+                            </svg>
+                            <h3>Contact Information</h3>
+                        </div>
+                        <div class="contact-info">
+                            <div class="info-item">
+                                <h4>Phone</h4>
+                                <p>+91 98765 43210</p>
+                            </div>
+                            <div class="info-item">
+                                <h4>Email</h4>
+                                <p>info@sukhakarta.com</p>
+                            </div>
+                            <div class="info-item">
+                                <h4>Address</h4>
+                                <p>123 Event Street, Decoration City<br>State - 123456, India</p>
+                            </div>
+                            <div class="info-item">
+                                <h4>Working Hours</h4>
+                                <p>Monday - Sunday: 9:00 AM - 8:00 PM<br>Available for emergency consultations</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="contact-card">
+                        <div class="card-header">
+                            <svg class="card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M8 2v4"/>
+                                <path d="M16 2v4"/>
+                                <rect width="18" height="18" x="3" y="4" rx="2"/>
+                                <path d="M3 10h18"/>
+                            </svg>
+                            <h3>Quick Quote Request</h3>
+                        </div>
+                        <div class="quote-content">
+                            <div class="event-types">
+                                <h4>Event Types We Cover:</h4>
+                                <ul>
+                                    <li>Wedding Ceremonies & Receptions</li>
+                                    <li>Mehendi & Sangeet Functions</li>
+                                    <li>Birthday Parties (All Ages)</li>
+                                    <li>Corporate Events</li>
+                                </ul>
+                            </div>
+                            <div class="contact-buttons">
+                                <button class="btn btn-primary btn-full">Call Now for Free Consultation</button>
+                                <button class="btn btn-outline btn-full">WhatsApp for Quick Response</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="container">
+                <div class="footer-content">
+                    <div class="footer-section">
+                        <div class="footer-logo">
+                            <svg class="footer-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M6 3h12l4 6-10 13L2 9l4-6z"/>
+                            </svg>
+                            <h3>Sukhakarta</h3>
+                        </div>
+                        <p>Creating magical moments with exquisite decoration services. Your celebration, our dedication.</p>
+                    </div>
+                    <div class="footer-section">
+                        <h4>Services</h4>
+                        <ul>
+                            <li>Wedding Decoration</li>
+                            <li>Reception Setup</li>
+                            <li>Mehendi Ceremonies</li>
+                            <li>Birthday Parties</li>
+                        </ul>
+                    </div>
+                    <div class="footer-section">
+                        <h4>Quick Links</h4>
+                        <ul>
+                            <li><button onclick="scrollToSection('about')">About Us</button></li>
+                            <li><button onclick="scrollToSection('gallery')">Gallery</button></li>
+                            <li><button onclick="scrollToSection('services')">Services</button></li>
+                            <li><button onclick="scrollToSection('contact')">Contact</button></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="footer-bottom">
+                    <p>© 2024 Sukhakarta Event Decoration. All rights reserved. Made with ❤️ for beautiful celebrations.</p>
+                </div>
+            </div>
+        </footer>
+    </div>
+<!-- src="script.js">-->
+    <script>
+
+
+// Gallery data
+const galleryData = {
+    wedding: [
+        {
+            src: "https://images.unsplash.com/photo-1465146344425-f00d5f5c8f07",
+            title: "Elegant Wedding Mandap",
+            description: "Beautiful traditional mandap with floral decorations"
+        },
+        {
+            src: "https://images.unsplash.com/photo-1500673922987-e212871fec22",
+            title: "Wedding Stage Setup",
+            description: "Romantic wedding stage with fairy lights"
+        },
+        {
+            src: "https://images.unsplash.com/photo-1472396961693-142e6e269027",
+            title: "Bridal Entrance Decor",
+            description: "Stunning entrance decoration for the bride"
+        }
+    ],
+    reception: [
+        {
+            src: "https://images.unsplash.com/photo-1506744038136-46273834b3fb",
+            title: "Reception Hall Decor",
+            description: "Elegant reception hall with sophisticated lighting"
+        },
+        {
+            src: "https://images.unsplash.com/photo-1493962853295-0fd70327578a",
+            title: "Table Centerpieces",
+            description: "Beautiful floral centerpieces for reception tables"
+        },
+        {
+            src: "https://images.unsplash.com/photo-1605810230434-7631ac76ec81",
+            title: "Reception Backdrop",
+            description: "Stunning backdrop for photo sessions"
+        }
+    ],
+    mehendi: [
+        {
+            src: "https://images.unsplash.com/photo-1519389950473-47ba0277781c",
+            title: "Mehendi Stage Decor",
+            description: "Colorful and vibrant mehendi ceremony decoration"
+        },
+        {
+            src: "https://images.unsplash.com/photo-1465146344425-f00d5f5c8f07",
+            title: "Traditional Seating",
+            description: "Traditional floor seating arrangement"
+        },
+        {
+            src: "https://images.unsplash.com/photo-1500673922987-e212871fec22",
+            title: "Mehendi Photo Corner",
+            description: "Beautiful photo corner for mehendi celebrations"
+        }
+    ],
+    birthday: [
+        {
+            src: "https://images.unsplash.com/photo-1472396961693-142e6e269027",
+            title: "Birthday Party Theme",
+            description: "Themed birthday party decoration"
+        },
+        {
+            src: "https://images.unsplash.com/photo-1493962853295-0fd70327578a",
+            title: "Balloon Arrangements",
+            description: "Creative balloon decorations for birthdays"
+        },
+        {
+            src: "https://images.unsplash.com/photo-1506744038136-46273834b3fb",
+            title: "Birthday Cake Table",
+            description: "Special cake table decoration"
+        }
+    ]
+};
+
+// DOM elements
+const loadingSpinner = document.getElementById('loading-spinner');
+const mainContent = document.getElementById('main-content');
+const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+const mobileMenu = document.getElementById('mobile-menu');
+const menuIcon = document.getElementById('menu-icon');
+const closeIcon = document.getElementById('close-icon');
+const galleryContent = document.getElementById('gallery-content');
+const filterBtns = document.querySelectorAll('.filter-btn');
+
+// Loading spinner
+window.addEventListener('load', () => {
+    setTimeout(() => {
+        loadingSpinner.style.display = 'none';
+        mainContent.classList.remove('hidden');
+    }, 2000);
+});
+
+// Mobile menu toggle
+let isMobileMenuOpen = false;
+
+mobileMenuBtn.addEventListener('click', () => {
+    isMobileMenuOpen = !isMobileMenuOpen;
+    
+    if (isMobileMenuOpen) {
+        mobileMenu.classList.remove('hidden');
+        menuIcon.classList.add('hidden');
+        closeIcon.classList.remove('hidden');
+    } else {
+        mobileMenu.classList.add('hidden');
+        menuIcon.classList.remove('hidden');
+        closeIcon.classList.add('hidden');
+    }
+});
+
+// Close mobile menu when clicking on links
+document.querySelectorAll('.mobile-nav-link, .mobile-btn-container .btn').forEach(link => {
+    link.addEventListener('click', () => {
+        isMobileMenuOpen = false;
+        mobileMenu.classList.add('hidden');
+        menuIcon.classList.remove('hidden');
+        closeIcon.classList.add('hidden');
+    });
+});
+
+// Smooth scrolling functions
+function scrollToTop() {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+    closeMobileMenu();
+}
+
+function scrollToSection(id) {
+    const element = document.getElementById(id);
+    if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+    }
+    closeMobileMenu();
+}
+
+function closeMobileMenu() {
+    isMobileMenuOpen = false;
+    mobileMenu.classList.add('hidden');
+    menuIcon.classList.remove('hidden');
+    closeIcon.classList.add('hidden');
+}
+
+// Gallery functionality
+let currentFilter = 'wedding';
+
+function renderGallery(category) {
+    const items = galleryData[category];
+    galleryContent.innerHTML = '';
+    
+    items.forEach((item, index) => {
+        const galleryItem = document.createElement('div');
+        galleryItem.className = 'gallery-item';
+        galleryItem.innerHTML = `
+            <div class="gallery-image">
+                <img src="${item.src}" alt="${item.title}" loading="lazy">
+                <div class="gallery-overlay">
+                    <div class="gallery-overlay-content">
+                        <h4>${item.title}</h4>
+                        <p>${item.description}</p>
+                    </div>
+                </div>
+            </div>
+        `;
+        galleryContent.appendChild(galleryItem);
+    });
+}
+
+// Filter button event listeners
+filterBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+        const filter = btn.getAttribute('data-filter');
+        
+        // Update active button
+        filterBtns.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        
+        // Update gallery
+        currentFilter = filter;
+        renderGallery(filter);
+    });
+});
+
+// Initialize gallery
+renderGallery(currentFilter);
+
+// Navbar scroll effect
+window.addEventListener('scroll', () => {
+    const navbar = document.getElementById('navbar');
+    if (window.scrollY > 50) {
+        navbar.style.backgroundColor = 'rgba(255, 255, 255, 0.98)';
+    } else {
+        navbar.style.backgroundColor = 'rgba(255, 255, 255, 0.95)';
+    }
+});
+
+// Add scroll animations
+const observerOptions = {
+    threshold: 0.1,
+    rootMargin: '0px 0px -50px 0px'
+};
+
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.style.opacity = '1';
+            entry.target.style.transform = 'translateY(0)';
+        }
+    });
+}, observerOptions);
+
+// Observe elements for scroll animations
+document.addEventListener('DOMContentLoaded', () => {
+    const animatedElements = document.querySelectorAll('.service-card, .gallery-item, .contact-card, .stats-card');
+    
+    animatedElements.forEach(el => {
+        el.style.opacity = '0';
+        el.style.transform = 'translateY(20px)';
+        el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+        observer.observe(el);
+    });
+});
+
+// Add some interactive feedback for buttons
+document.querySelectorAll('.btn').forEach(btn => {
+    btn.addEventListener('click', function(e) {
+        // Create ripple effect
+        const ripple = document.createElement('span');
+        const rect = this.getBoundingClientRect();
+        const size = Math.max(rect.width, rect.height);
+        const x = e.clientX - rect.left - size / 2;
+        const y = e.clientY - rect.top - size / 2;
+        
+        ripple.style.width = ripple.style.height = size + 'px';
+        ripple.style.left = x + 'px';
+        ripple.style.top = y + 'px';
+        ripple.classList.add('ripple');
+        
+        this.appendChild(ripple);
+        
+        setTimeout(() => {
+            ripple.remove();
+        }, 600);
+    });
+});
+
+// Add ripple effect styles
+const style = document.createElement('style');
+style.textContent = `
+    .btn {
+        position: relative;
+        overflow: hidden;
+    }
+    
+    .ripple {
+        position: absolute;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.3);
+        transform: scale(0);
+        animation: ripple-animation 0.6s linear;
+        pointer-events: none;
+    }
+    
+    @keyframes ripple-animation {
+        to {
+            transform: scale(4);
+            opacity: 0;
+        }
+    }
+`;
+document.head.appendChild(style);
+
+console.log('Sukhakarta Event Decoration website loaded successfully!');
+    </script>
+</body>
+
+</html>
