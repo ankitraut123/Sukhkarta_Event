@@ -6,897 +6,1010 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sukhakarta Event Decoration - Premium Wedding & Event Decoration Services</title>
     <meta name="description" content="Sukhakarta Event Decoration - Creating magical moments with exquisite decoration services for weddings, receptions, mehendi, and birthday celebrations">
-   <!-- <link rel="stylesheet" href="styles.css"> -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-</head>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* Reset and Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-<style>/* Reset and Base Styles */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: #1a1a1a;
+            background-color: #ffffff;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Playfair Display', serif;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+
+        /* Color Palette */
+        :root {
+            --golden-50: #fefdf8;
+            --golden-100: #fef7e0;
+            --golden-200: #fdeed1;
+            --golden-300: #fbe0a0;
+            --golden-400: #f8cc69;
+            --golden-500: #f5b942;
+            --golden-600: #e6a532;
+            --golden-700: #c88b28;
+            --saffron-50: #fff8ed;
+            --saffron-100: #ffefd5;
+            --saffron-200: #ffdcaa;
+            --saffron-300: #ffc274;
+            --saffron-400: #ff9d3c;
+            --saffron-500: #ff7e16;
+            --saffron-600: #f0640c;
+            --maroon-50: #fef2f2;
+            --maroon-100: #fee2e2;
+            --maroon-200: #fecaca;
+            --maroon-300: #fca5a5;
+            --maroon-400: #f87171;
+            --maroon-500: #ef4444;
+            --maroon-600: #dc2626;
+            --maroon-700: #b91c1c;
+        }
+
+        /* Utility Classes */
+        .text-gradient {
+            background: linear-gradient(135deg, var(--golden-600), var(--saffron-500), var(--maroon-600));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .bg-gradient-warm {
+            background: linear-gradient(135deg, var(--golden-50), #ffffff, var(--saffron-50));
+        }
+
+        .glass-effect {
+            backdrop-filter: blur(12px);
+            background-color: rgba(255, 255, 255, 0.8);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .card-hover {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .card-hover:hover {
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+            transform: translateY(-8px);
+        }
+
+        .btn-gradient {
+            background: linear-gradient(135deg, var(--golden-500), var(--saffron-500), var(--maroon-500));
+            color: white;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
+
+        .btn-gradient:hover {
+            background: linear-gradient(135deg, var(--golden-600), var(--saffron-600), var(--maroon-600));
+            transform: scale(1.05);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+        }
+
+        .text-shadow {
+            text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        /* Loading Spinner */
+        .loading-spinner {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: var(--bg-gradient-warm);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 9999;
+        }
+
+        .spinner-content {
+            text-align: center;
+        }
+
+        .spinner-wrapper {
+            position: relative;
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 24px;
+        }
+
+        .spinner-outer {
+            position: absolute;
+            inset: 0;
+            border-radius: 50%;
+            border: 4px solid var(--golden-200);
+            animation: pulse 2s infinite;
+        }
+
+        .spinner-inner {
+            position: absolute;
+            inset: 0;
+            border-radius: 50%;
+            border: 4px solid transparent;
+            border-top: 4px solid var(--golden-500);
+            animation: spin 1s linear infinite;
+        }
+
+        .spinner-content h2 {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .spinner-content p {
+            color: #6b7280;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+
+        /* Navigation */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 40;
+            background-color: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(8px);
+            transition: all 0.3s ease;
+        }
+
+        .navbar.scrolled {
+            background-color: rgba(255, 255, 255, 0.98);
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+
+        .nav-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 64px;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        .logo:hover {
+            transform: scale(1.05);
+        }
+
+        .logo-icon {
+            width: 32px;
+            height: 32px;
+            color: var(--golden-500);
+        }
+
+        .logo-text {
+            font-size: 1.25rem;
+            font-weight: 700;
+        }
+
+        .desktop-menu {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+        }
+
+        .nav-link {
+            background: none;
+            border: none;
+            color: #374151;
+            font-weight: 500;
+            cursor: pointer;
+            transition: color 0.3s ease;
+            text-transform: capitalize;
+        }
+
+        .nav-link:hover {
+            color: var(--golden-600);
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            padding: 8px;
+            cursor: pointer;
+            border-radius: 8px;
+            transition: background-color 0.3s ease;
+        }
+
+        .mobile-menu-btn:hover {
+            background-color: #f3f4f6;
+        }
+
+        .menu-icon {
+            width: 24px;
+            height: 24px;
+        }
+
+        .mobile-menu {
+            border-top: 1px solid #e5e7eb;
+            background-color: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(8px);
+            padding: 1rem 0;
+        }
+
+        .mobile-nav-link {
+            display: block;
+            width: 100%;
+            text-align: left;
+            padding: 8px 16px;
+            background: none;
+            border: none;
+            color: #374151;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-transform: capitalize;
+        }
+
+        .mobile-nav-link:hover {
+            color: var(--golden-600);
+            background-color: #f9fafb;
+        }
+
+        .mobile-btn-container {
+            padding: 0 16px;
+            margin-top: 16px;
+        }
+
+        /* Buttons */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            font-weight: 500;
+            border-radius: 0.75rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            border: none;
+            font-size: 14px;
+            padding: 8px 24px;
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            color: var(--golden-600);
+            border: 1px solid var(--golden-300);
+        }
+
+        .btn-outline:hover {
+            background-color: var(--golden-50);
+        }
+
+        .btn-lg {
+            font-size: 1.125rem;
+            padding: 12px 32px;
+        }
+
+        .btn-full {
+            width: 100%;
+        }
+
+        .btn-icon {
+            width: 20px;
+            height: 20px;
+        }
+
+        /* Main Content */
+        .main-content {
+            padding-top: 64px;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        /* Hero Section */
+        .hero {
+            position: relative;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .hero-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, var(--golden-50), #ffffff, var(--saffron-50));
+        }
+
+        .hero-bg-image {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: url('https://images.unsplash.com/photo-1465146344425-f00d5f5c8f07');
+            background-size: cover;
+            background-position: center;
+            opacity: 0.05;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 10;
+            text-align: center;
+            padding: 0 1rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .hero-icon {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 32px;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        .hero-icon svg {
+            width: 64px;
+            height: 64px;
+            color: var(--golden-500);
+        }
+
+        .hero-title {
+            font-size: clamp(2.5rem, 5vw, 4.5rem);
+            font-weight: 700;
+            margin-bottom: 24px;
+        }
+
+        .hero-subtitle {
+            font-size: clamp(1.125rem, 2vw, 1.25rem);
+            color: #6b7280;
+            margin-bottom: 32px;
+            max-width: 768px;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.6;
+        }
+
+        .hero-buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            align-items: center;
+        }
+
+        .scroll-indicator {
+            position: absolute;
+            bottom: 32px;
+            left: 50%;
+            transform: translateX(-50%);
+            animation: bounce-gentle 2s infinite;
+        }
+
+        .scroll-mouse {
+            width: 24px;
+            height: 40px;
+            border: 2px solid var(--golden-400);
+            border-radius: 12px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .scroll-dot {
+            width: 4px;
+            height: 12px;
+            background-color: var(--golden-400);
+            border-radius: 2px;
+            margin-top: 8px;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+
+        @keyframes bounce-gentle {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-5px); }
+        }
+
+        /* Section Styles */
+        .section {
+            padding: 80px 0;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+            animation: fade-in 0.6s ease-out;
+        }
+
+        .section-title {
+            font-size: clamp(2.5rem, 4vw, 3rem);
+            font-weight: 700;
+            margin-bottom: 16px;
+        }
+
+        .section-subtitle {
+            font-size: 1.25rem;
+            color: #6b7280;
+            max-width: 768px;
+            margin: 0 auto;
+        }
+
+        @keyframes fade-in {
+            0% {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* About Section */
+        .about {
+            background: linear-gradient(135deg, var(--golden-50), #ffffff, var(--saffron-50));
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 48px;
+            align-items: center;
+        }
+
+        .about-text {
+            animation: fade-in 0.6s ease-out;
+        }
+
+        .about-text h3 {
+            font-size: 2rem;
+            font-weight: 600;
+            color: var(--golden-700);
+            margin-bottom: 24px;
+        }
+
+        .about-text p {
+            color: #6b7280;
+            margin-bottom: 24px;
+            line-height: 1.6;
+        }
+
+        .about-highlight {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            color: var(--golden-600);
+        }
+
+        .highlight-icon {
+            width: 24px;
+            height: 24px;
+        }
+
+        .about-highlight span {
+            font-size: 1.125rem;
+            font-weight: 600;
+        }
+
+        .stats-card {
+            background: white;
+            border-radius: 16px;
+            padding: 32px;
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 24px;
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-item h4 {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .stat-item p {
+            color: #6b7280;
+            font-size: 0.875rem;
+        }
+
+        /* Services Section */
+        .services {
+            background-color: #ffffff;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 32px;
+        }
+
+        .service-card {
+            background: white;
+            border-radius: 16px;
+            padding: 24px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            border-left: 4px solid var(--golden-400);
+        }
+
+        .service-header {
+            text-align: center;
+            margin-bottom: 24px;
+        }
+
+        .service-icon {
+            width: 48px;
+            height: 48px;
+            color: var(--golden-500);
+            margin: 0 auto 16px;
+        }
+
+        .service-header h3 {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: #1f2937;
+        }
+
+        .service-card p {
+            color: #6b7280;
+            margin-bottom: 16px;
+            font-size: 0.875rem;
+            line-height: 1.6;
+        }
+
+        .service-features {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .service-features li {
+            font-size: 0.875rem;
+            color: #6b7280;
+            display: flex;
+            align-items: center;
+            margin-bottom: 8px;
+        }
+
+        .service-features li::before {
+            content: '';
+            width: 8px;
+            height: 8px;
+            background-color: var(--golden-400);
+            border-radius: 50%;
+            margin-right: 12px;
+            flex-shrink: 0;
+        }
+
+        /* Gallery Section */
+        .gallery {
+            background: linear-gradient(135deg, var(--golden-50), #ffffff, var(--saffron-50));
+        }
+
+        .gallery-filters {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 16px;
+            margin-bottom: 48px;
+        }
+
+        .filter-btn {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 12px 24px;
+            background: white;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 500;
+            color: #6b7280;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .filter-btn:hover {
+            transform: scale(1.05);
+        }
+
+        .filter-btn.active {
+            background: linear-gradient(135deg, var(--golden-500), var(--saffron-500), var(--maroon-500));
+            color: white;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+        }
+
+        .filter-icon {
+            width: 16px;
+            height: 16px;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 32px;
+        }
+
+        .gallery-item {
+            background: white;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            position: relative;
+            group: hover;
+        }
+
+        .gallery-image {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .gallery-image img {
+            width: 100%;
+            height: 256px;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .gallery-item:hover .gallery-image img {
+            transform: scale(1.1);
+        }
+
+        .gallery-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.7), transparent);
+            display: flex;
+            align-items: end;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .gallery-item:hover .gallery-overlay {
+            opacity: 1;
+        }
+
+        .gallery-overlay-content {
+            color: white;
+            padding: 16px;
+        }
+
+        .gallery-overlay h4 {
+            font-size: 1.125rem;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .gallery-overlay p {
+            font-size: 0.875rem;
+            color: #e5e7eb;
+        }
+
+        /* Contact Section */
+        .contact {
+            background-color: #ffffff;
+        }
+
+        .contact-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 48px;
+        }
+
+        .contact-card {
+            background: white;
+            border-radius: 16px;
+            padding: 32px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
+
+        .card-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 24px;
+        }
+
+        .card-icon {
+            width: 24px;
+            height: 24px;
+            color: var(--golden-500);
+        }
+
+        .card-header h3 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #1f2937;
+        }
+
+        .contact-info {
+            margin-bottom: 24px;
+        }
+
+        .info-item {
+            margin-bottom: 24px;
+        }
+
+        .info-item h4 {
+            font-weight: 600;
+            color: var(--golden-600);
+            margin-bottom: 8px;
+        }
+
+        .info-item p {
+            color: #6b7280;
+            white-space: pre-line;
+        }
+
+        .quote-content {
+            margin-bottom: 24px;
+        }
+
+        .event-types h4 {
+            font-weight: 600;
+            color: var(--golden-600);
+            margin-bottom: 12px;
+        }
+
+        .event-types ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .event-types li {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            color: #6b7280;
+            margin-bottom: 8px;
+        }
+
+        .event-types li::before {
+            content: '';
+            width: 8px;
+            height: 8px;
+            background-color: var(--golden-400);
+            border-radius: 50%;
+        }
+
+        .contact-buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        /* Footer */
+        .footer {
+            background: linear-gradient(135deg, var(--golden-600), var(--saffron-600), var(--maroon-600));
+            color: white;
+            padding: 48px 0;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 32px;
+        }
+
+        .footer-logo {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 16px;
+        }
+
+        .footer-icon {
+            width: 32px;
+            height: 32px;
+        }
+
+        .footer-logo h3 {
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+
+        .footer-section p {
+            color: rgba(255, 255, 255, 0.8);
+            line-height: 1.6;
+        }
+
+        .footer-section h4 {
+            font-size: 1.125rem;
+            font-weight: 600;
+            margin-bottom: 16px;
+        }
+
+        .footer-section ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .footer-section ul li {
+            margin-bottom: 8px;
+        }
+
+        .footer-section ul li button {
+            background: none;
+            border: none;
+            color: rgba(255, 255, 255, 0.8);
+            cursor: pointer;
+            transition: color 0.3s ease;
+        }
+
+        .footer-section ul li button:hover {
+            color: white;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
+            margin-top: 32px;
+            padding-top: 32px;
+            text-align: center;
+        }
+
+        .footer-bottom p {
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        /* Responsive Design */
+        @media (min-width: 640px) {
+            .hero-buttons {
+                flex-direction: row;
+                justify-content: center;
+            }
+        }
+
+        @media (min-width: 768px) {
+            .mobile-menu-btn {
+                display: none;
+            }
+
+            .desktop-menu {
+                display: flex;
+            }
+
+            .about-content {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (max-width: 767px) {
+            .desktop-menu {
+                display: none;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .contact-content {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-card {
+                min-width: auto;
+            }
+
+            .gallery-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .stats-grid {
+                grid-template-columns: 1fr;
+                gap: 16px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 0 0.75rem;
+            }
+
+            .gallery-filters {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .filter-btn {
+                width: 100%;
+                max-width: 200px;
+                justify-content: center;
+            }
+
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+  .logo-button {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 8px 12px;
+  border-radius: 12px;
+  transition: transform 0.3s ease;
 }
 
-body {
-    font-family: 'Inter', sans-serif;
-    line-height: 1.6;
-    color: #1a1a1a;
-    background-color: #ffffff;
+.logo-button:hover {
+  transform: scale(1.2); /* Zoom-out effect */
 }
 
-.container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 1rem;
-}
-
-/* Loading Spinner */
-.loading-spinner {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: #ffffff;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    z-index: 9999;
-}
-
-.spinner-content {
-    text-align: center;
-}
-
-.spinner-wrapper {
-    position: relative;
-    width: 80px;
-    height: 80px;
-    margin: 0 auto 24px;
-}
-
-.spinner-outer {
-    width: 80px;
-    height: 80px;
-    border: 4px solid #e5e7eb;
-    border-radius: 50%;
-    animation: pulse 2s infinite;
-}
-
-.spinner-inner {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 80px;
-    height: 80px;
-    border: 4px solid #3b82f6;
-    border-top: 4px solid transparent;
-    border-radius: 50%;
-    animation: spin 1s linear infinite;
-}
-
-.spinner-content h2 {
-    font-size: 2rem;
-    font-weight: 700;
-    color: #3b82f6;
-    margin-bottom: 8px;
-}
-
-.spinner-content p {
-    color: #6b7280;
-}
-
-@keyframes spin {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
-}
-
-@keyframes pulse {
-    0%, 100% { opacity: 1; }
-    50% { opacity: 0.5; }
-}
-
-/* Navigation */
-.navbar {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    z-index: 50;
-    background-color: rgba(255, 255, 255, 0.95);
-    backdrop-filter: blur(8px);
-    border-bottom: 1px solid #e5e7eb;
-}
-
-.nav-container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 1rem;
-}
-
-.nav-content {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    height: 64px;
-}
-
-.logo {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    background: none;
-    border: none;
-    cursor: pointer;
-    transition: transform 0.3s ease;
-}
-
-.logo:hover {
-    transform: scale(1.05);
-}
-
-.logo-icon {
-    width: 32px;
-    height: 32px;
-    color: #3b82f6;
+.icon-img {
+  width: 350px;
+  height: 350px;
+  transition: transform 0.3s ease;
 }
 
 .logo-text {
-    font-size: 1.25rem;
-    font-weight: 700;
-    color: #3b82f6;
+  font-size: 18px;
+  font-weight: 600;
+  color: #333;
+  transition: color 0.3s ease;
 }
 
-.desktop-menu {
-    display: flex;
-    align-items: center;
-    gap: 2rem;
+.logo-button:hover .logo-text {
+  color: #d90429; /* Optional hover color */
 }
 
-.nav-link {
-    background: none;
-    border: none;
-    color: #6b7280;
-    font-weight: 500;
-    cursor: pointer;
-    transition: color 0.3s ease;
-}
-
-.nav-link:hover {
-    color: #3b82f6;
-}
-
-.mobile-menu-btn {
-    display: none;
-    background: none;
-    border: none;
-    padding: 8px;
-    cursor: pointer;
-    border-radius: 8px;
-    transition: background-color 0.3s ease;
-}
-
-.mobile-menu-btn:hover {
-    background-color: #f3f4f6;
-}
-
-.menu-icon {
-    width: 24px;
-    height: 24px;
-    color: #3b82f6;
-}
-
-.mobile-menu {
-    border-top: 1px solid #e5e7eb;
-    background-color: #ffffff;
-    padding: 1rem 0;
-}
-
-.mobile-nav-link {
-    display: block;
-    width: 100%;
-    text-align: left;
-    padding: 8px 16px;
-    background: none;
-    border: none;
-    color: #6b7280;
-    font-weight: 500;
-    cursor: pointer;
-    border-radius: 8px;
-    transition: all 0.3s ease;
-    margin-bottom: 4px;
-}
-
-.mobile-nav-link:hover {
-    color: #3b82f6;
-    background-color: #f3f4f6;
-}
-
-.mobile-btn-container {
-    padding: 0 16px;
-    margin-top: 16px;
-}
-
-/* Buttons */
-.btn {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    gap: 8px;
-    font-weight: 500;
-    border-radius: 8px;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    text-decoration: none;
-    border: none;
-    font-size: 14px;
-}
-
-.btn-primary {
-    background-color: #3b82f6;
-    color: white;
-    padding: 8px 16px;
-}
-
-.btn-primary:hover {
-    background-color: #2563eb;
-    transform: scale(1.05);
-}
-
-.btn-outline {
-    background-color: transparent;
-    color: #3b82f6;
-    border: 1px solid #3b82f6;
-    padding: 8px 16px;
-}
-
-.btn-outline:hover {
-    background-color: #f3f4f6;
-    transform: scale(1.05);
-}
-
-.btn-lg {
-    font-size: 1.125rem;
-    padding: 12px 32px;
-}
-
-.btn-full {
-    width: 100%;
-}
-
-.btn-icon {
-    width: 16px;
-    height: 16px;
-}
-
-/* Main Content */
-.main-content {
-    padding-top: 64px;
-}
-
-.hidden {
-    display: none;
-}
-
-/* Hero Section */
-.hero {
-    position: relative;
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: linear-gradient(135deg, rgba(59, 130, 246, 0.1) 0%, rgba(255, 255, 255, 1) 50%, rgba(147, 197, 253, 0.1) 100%);
-    overflow: hidden;
-}
-
-.hero-bg {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-image: url('https://images.unsplash.com/photo-1465146344425-f00d5f5c8f07');
-    background-size: cover;
-    background-position: center;
-    opacity: 0.1;
-}
-
-.hero-content {
-    position: relative;
-    z-index: 10;
-    text-align: center;
-    padding: 0 1rem;
-    max-width: 1200px;
-    margin: 0 auto;
-}
-
-.hero-icon {
-    display: flex;
-    justify-content: center;
-    margin-bottom: 24px;
-}
-
-.hero-icon svg {
-    width: 64px;
-    height: 64px;
-    color: #3b82f6;
-    animation: bounce 2s infinite;
-}
-
-.hero-title {
-    font-size: clamp(2.5rem, 5vw, 4.5rem);
-    font-weight: 700;
-    margin-bottom: 24px;
-    background: linear-gradient(135deg, #3b82f6, #8b5cf6);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-}
-
-.hero-subtitle {
-    font-size: clamp(1.125rem, 2vw, 1.5rem);
-    color: #6b7280;
-    margin-bottom: 32px;
-    max-width: 768px;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-.hero-buttons {
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
-    align-items: center;
-}
-
-.scroll-indicator {
-    position: absolute;
-    bottom: 32px;
-    left: 50%;
-    transform: translateX(-50%);
-    animation: bounce 2s infinite;
-}
-
-.scroll-mouse {
-    width: 24px;
-    height: 40px;
-    border: 2px solid #3b82f6;
-    border-radius: 12px;
-    display: flex;
-    justify-content: center;
-    padding-top: 8px;
-}
-
-.scroll-dot {
-    width: 4px;
-    height: 12px;
-    background-color: #3b82f6;
-    border-radius: 2px;
-    animation: pulse 2s infinite;
-}
-
-@keyframes bounce {
-    0%, 20%, 53%, 80%, 100% { transform: translate3d(0, 0, 0); }
-    40%, 43% { transform: translate3d(0, -30px, 0); }
-    70% { transform: translate3d(0, -15px, 0); }
-    90% { transform: translate3d(0, -4px, 0); }
-}
-
-/* Section Styles */
-.section-header {
-    text-align: center;
-    margin-bottom: 4rem;
-}
-
-.section-title {
-    font-size: clamp(2rem, 4vw, 2.5rem);
-    font-weight: 700;
-    color: #3b82f6;
-    margin-bottom: 16px;
-}
-
-.section-subtitle {
-    font-size: 1.125rem;
-    color: #6b7280;
-    max-width: 512px;
-    margin: 0 auto;
-}
-
-/* About Section */
-.about {
-    padding: 80px 0;
-    background-color: rgba(147, 197, 253, 0.05);
-}
-
-.about-content {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 48px;
-    align-items: center;
-}
-
-.about-text h3 {
-    font-size: 2rem;
-    font-weight: 600;
-    color: #3b82f6;
-    margin-bottom: 24px;
-}
-
-.about-text p {
-    color: #6b7280;
-    margin-bottom: 24px;
-    line-height: 1.6;
-}
-
-.about-highlight {
-    display: flex;
-    align-items: center;
-    gap: 16px;
-    padding-top: 16px;
-}
-
-.highlight-icon {
-    width: 32px;
-    height: 32px;
-    color: #3b82f6;
-}
-
-.about-highlight span {
-    font-size: 1.125rem;
-    font-weight: 500;
-}
-
-.stats-card {
-    background: white;
-    border-radius: 16px;
-    padding: 32px;
-    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
-    transition: box-shadow 0.3s ease;
-}
-
-.stats-card:hover {
-    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.15);
-}
-
-.stats-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 24px;
-}
-
-.stat-item {
-    text-align: center;
-}
-
-.stat-item h4 {
-    font-size: 3rem;
-    font-weight: 700;
-    color: #3b82f6;
-    margin-bottom: 8px;
-}
-
-.stat-item p {
-    color: #6b7280;
-}
-
-/* Services Section */
-.services {
-    padding: 80px 0;
-    background-color: #ffffff;
-}
-
-.services-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 32px;
-}
-
-.service-card {
-    background: white;
-    border-radius: 16px;
-    padding: 32px;
-    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-    transition: all 0.3s ease;
-}
-
-.service-card:hover {
-    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.15);
-    transform: scale(1.05);
-}
-
-.service-header {
-    text-align: center;
-    margin-bottom: 24px;
-}
-
-.service-icon {
-    width: 48px;
-    height: 48px;
-    color: #3b82f6;
-    margin: 0 auto 16px;
-}
-
-.service-header h3 {
-    font-size: 1.25rem;
-    font-weight: 600;
-}
-
-.service-card p {
-    color: #6b7280;
-    margin-bottom: 16px;
-    font-size: 14px;
-    line-height: 1.6;
-}
-
-.service-features {
-    list-style: none;
-}
-
-.service-features li {
-    font-size: 14px;
-    color: #6b7280;
-    display: flex;
-    align-items: center;
-    margin-bottom: 8px;
-}
 
-.service-features li::before {
-    content: '';
-    width: 8px;
-    height: 8px;
-    background-color: #3b82f6;
-    border-radius: 50%;
-    margin-right: 8px;
-}
-
-/* Gallery Section */
-.gallery {
-    padding: 80px 0;
-    background-color: rgba(147, 197, 253, 0.05);
-}
-
-.gallery-filters {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 16px;
-    margin-bottom: 48px;
-}
-
-.filter-btn {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    padding: 8px 16px;
-    background: white;
-    border: 1px solid #e5e7eb;
-    border-radius: 8px;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    font-weight: 500;
-}
-
-.filter-btn:hover {
-    transform: scale(1.05);
-}
-
-.filter-btn.active {
-    background-color: #3b82f6;
-    color: white;
-    border-color: #3b82f6;
-}
-
-.filter-icon {
-    width: 16px;
-    height: 16px;
-}
-
-.gallery-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-    gap: 32px;
-}
-
-.gallery-item {
-    background: white;
-    border-radius: 16px;
-    overflow: hidden;
-    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-    transition: all 0.3s ease;
-    position: relative;
-    group: hover;
-}
-
-.gallery-item:hover {
-    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.15);
-}
-
-.gallery-image {
-    position: relative;
-    overflow: hidden;
-}
-
-.gallery-image img {
-    width: 100%;
-    height: 256px;
-    object-fit: cover;
-    transition: transform 0.3s ease;
-}
-
-.gallery-item:hover .gallery-image img {
-    transform: scale(1.1);
-}
-
-.gallery-overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: rgba(0, 0, 0, 0.5);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    opacity: 0;
-    transition: opacity 0.3s ease;
-}
-
-.gallery-item:hover .gallery-overlay {
-    opacity: 1;
-}
-
-.gallery-overlay-content {
-    text-align: center;
-    color: white;
-    padding: 16px;
-}
-
-.gallery-overlay h4 {
-    font-size: 1.125rem;
-    font-weight: 600;
-    margin-bottom: 8px;
-}
-
-.gallery-overlay p {
-    font-size: 14px;
-}
-
-/* Contact Section */
-.contact {
-    padding: 80px 0;
-    background-color: #ffffff;
-}
-
-.contact-content {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-    gap: 48px;
-}
-
-.contact-card {
-    background: white;
-    border-radius: 16px;
-    padding: 32px;
-    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-    transition: box-shadow 0.3s ease;
-}
-
-.contact-card:hover {
-    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.15);
-}
-
-.card-header {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    margin-bottom: 24px;
-}
-
-.card-icon {
-    width: 24px;
-    height: 24px;
-    color: #3b82f6;
-}
-
-.card-header h3 {
-    font-size: 1.25rem;
-    font-weight: 600;
-}
-
-.contact-info {
-    space-y: 24px;
-}
-
-.info-item {
-    margin-bottom: 24px;
-}
-
-.info-item h4 {
-    font-weight: 600;
-    color: #3b82f6;
-    margin-bottom: 8px;
-}
-
-.info-item p {
-    color: #6b7280;
-}
-
-.quote-content {
-    space-y: 24px;
-}
-
-.event-types h4 {
-    font-weight: 600;
-    color: #3b82f6;
-    margin-bottom: 8px;
-}
-
-.event-types ul {
-    list-style: none;
-    space-y: 8px;
-}
-
-.event-types li {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    color: #6b7280;
-    margin-bottom: 8px;
-}
-
-.event-types li::before {
-    content: '';
-    width: 8px;
-    height: 8px;
-    background-color: #3b82f6;
-    border-radius: 50%;
-}
-
-.contact-buttons {
-    padding-top: 16px;
-    space-y: 8px;
-}
-
-.contact-buttons .btn {
-    margin-bottom: 8px;
-}
-
-/* Footer */
-.footer {
-    background-color: #3b82f6;
-    color: white;
-    padding: 48px 0;
-}
-
-.footer-content {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 32px;
-}
-
-.footer-logo {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    margin-bottom: 16px;
-}
-
-.footer-icon {
-    width: 32px;
-    height: 32px;
-}
-
-.footer-logo h3 {
-    font-size: 2rem;
-    font-weight: 700;
-}
-
-.footer-section p {
-    color: rgba(255, 255, 255, 0.8);
-    line-height: 1.6;
-}
-
-.footer-section h4 {
-    font-size: 1.125rem;
-    font-weight: 600;
-    margin-bottom: 16px;
-}
-
-.footer-section ul {
-    list-style: none;
-    space-y: 8px;
-}
-
-.footer-section ul li {
-    margin-bottom: 8px;
-}
-
-.footer-section ul li button {
-    background: none;
-    border: none;
-    color: rgba(255, 255, 255, 0.8);
-    cursor: pointer;
-    transition: color 0.3s ease;
-}
-
-.footer-section ul li button:hover {
-    color: white;
-}
-
-.footer-bottom {
-    border-top: 1px solid rgba(255, 255, 255, 0.2);
-    margin-top: 32px;
-    padding-top: 32px;
-    text-align: center;
-}
-
-.footer-bottom p {
-    color: rgba(255, 255, 255, 0.8);
-}
-
-/* Responsive Design */
-@media (min-width: 640px) {
-    .hero-buttons {
-        flex-direction: row;
-        justify-content: center;
-    }
-}
-
-@media (min-width: 768px) {
-    .mobile-menu-btn {
-        display: none;
-    }
-
-    .desktop-menu {
-        display: flex;
-    }
-
-    .about-content {
-        grid-template-columns: 1fr 1fr;
-    }
-}
-
-@media (max-width: 767px) {
-    .desktop-menu {
-        display: none;
-    }
-
-    .mobile-menu-btn {
-        display: block;
-    }
-
-    .contact-content {
-        grid-template-columns: 1fr;
-    }
-
-    .contact-card {
-        min-width: auto;
-    }
-}
-
-@media (max-width: 480px) {
-    .container {
-        padding: 0 0.5rem;
-    }
-
-    .stats-grid {
-        grid-template-columns: 1fr;
-        gap: 16px;
-    }
-
-    .gallery-filters {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .filter-btn {
-        width: 100%;
-        max-width: 200px;
-        justify-content: center;
-    }
-
-}
-</style>
+    </style>
+</head>
 <body>
     <!-- Loading Spinner -->
     <div id="loading-spinner" class="loading-spinner">
@@ -905,7 +1018,7 @@ body {
                 <div class="spinner-outer"></div>
                 <div class="spinner-inner"></div>
             </div>
-            <h2>Sukhakarta Event Decoration</h2>
+            <h2 class="text-gradient">Sukhakarta Event Decoration</h2>
             <p>Creating Beautiful Memories...</p>
         </div>
     </div>
@@ -917,10 +1030,9 @@ body {
                 <!-- Logo -->
                 <button onclick="scrollToTop()" class="logo">
                     <svg class="logo-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <path d="M6 3h12l4 6-10 13L2 9l4-6z"/>
-                        <path d="M11 3 8 9l4 13 4-13-3-6"/>
+                        <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
                     </svg>
-                    <span class="logo-text">Sukhakarta</span>
+                    <span class="logo-text text-gradient">Sukhakarta</span>
                 </button>
 
                 <!-- Desktop Menu -->
@@ -929,7 +1041,7 @@ body {
                     <button onclick="scrollToSection('services')" class="nav-link">Services</button>
                     <button onclick="scrollToSection('gallery')" class="nav-link">Gallery</button>
                     <button onclick="scrollToSection('contact')" class="nav-link">Contact</button>
-                    <button onclick="scrollToSection('contact')" class="btn btn-primary">Get Quote</button>
+                    <button onclick="scrollToSection('contact')" class="btn btn-gradient">Get Quote</button>
                 </div>
 
                 <!-- Mobile Menu Button -->
@@ -953,7 +1065,7 @@ body {
                 <button onclick="scrollToSection('gallery')" class="mobile-nav-link">Gallery</button>
                 <button onclick="scrollToSection('contact')" class="mobile-nav-link">Contact</button>
                 <div class="mobile-btn-container">
-                    <button onclick="scrollToSection('contact')" class="btn btn-primary btn-full">Get Quote</button>
+                    <button onclick="scrollToSection('contact')" class="btn btn-gradient btn-full">Get Quote</button>
                 </div>
             </div>
         </div>
@@ -964,22 +1076,25 @@ body {
         <!-- Hero Section -->
         <section class="hero">
             <div class="hero-bg"></div>
+            <div class="hero-bg-image"></div>
             <div class="hero-content">
                 <div class="hero-icon">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <path d="M6 3h12l4 6-10 13L2 9l4-6z"/>
-                        <path d="M11 3 8 9l4 13 4-13-3-6"/>
-                    </svg>
+                    <!-- <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+                    </svg> -->
+                  <button onclick="scrollToTop()" class="logo-button">
+  <img src="logo.png" alt="Heart Icon" class="icon-img" />
+
+</button>
                 </div>
-                <h1 class="hero-title">Sukhakarta Event Decoration</h1>
+                <h1 class="hero-title text-gradient text-shadow">Sukhakarta Event Decoration</h1>
                 <p class="hero-subtitle">Creating magical moments with exquisite decoration services for weddings, receptions, mehendi, and birthday celebrations</p>
                 <div class="hero-buttons">
-                    <button onclick="scrollToSection('gallery')" class="btn btn-primary btn-lg">
+                    <button onclick="scrollToSection('gallery')" class="btn btn-gradient btn-lg">
                         <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M8 2v4"/>
-                            <path d="M16 2v4"/>
-                            <rect width="18" height="18" x="3" y="4" rx="2"/>
-                            <path d="M3 10h18"/>
+                            <rect width="18" height="18" x="3" y="3" rx="2" ry="2"/>
+                            <circle cx="9" cy="9" r="2"/>
+                            <path d="m21 15-3.086-3.086a2 2 0 0 0-2.828 0L6 21"/>
                         </svg>
                         View Our Work
                     </button>
@@ -994,10 +1109,10 @@ body {
         </section>
 
         <!-- About Section -->
-        <section id="about" class="about">
+        <section id="about" class="section about">
             <div class="container">
                 <div class="section-header">
-                    <h2 class="section-title">About Sukhakarta</h2>
+                    <h2 class="section-title text-gradient">About Sukhakarta</h2>
                     <p class="section-subtitle">Bringing your dream events to life with creative decoration and meticulous attention to detail</p>
                 </div>
                 <div class="about-content">
@@ -1007,27 +1122,31 @@ body {
                         <p>From intimate birthday parties to grand wedding receptions, we create stunning visual experiences that leave lasting impressions. Our expertise spans across various event types including weddings, receptions, mehendi ceremonies, and birthday celebrations.</p>
                         <div class="about-highlight">
                             <svg class="highlight-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <path d="M6 3h12l4 6-10 13L2 9l4-6z"/>
+                                <path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"/>
+                                <path d="M5 3v4"/>
+                                <path d="M19 17v4"/>
+                                <path d="M3 5h4"/>
+                                <path d="M17 19h4"/>
                             </svg>
                             <span>Making Every Moment Special</span>
                         </div>
                     </div>
-                    <div class="stats-card">
+                    <div class="stats-card card-hover">
                         <div class="stats-grid">
                             <div class="stat-item">
-                                <h4>500+</h4>
+                                <h4 class="text-gradient">500+</h4>
                                 <p>Events Decorated</p>
                             </div>
                             <div class="stat-item">
-                                <h4>5+</h4>
+                                <h4 class="text-gradient">5+</h4>
                                 <p>Years Experience</p>
                             </div>
                             <div class="stat-item">
-                                <h4>100%</h4>
+                                <h4 class="text-gradient">100%</h4>
                                 <p>Client Satisfaction</p>
                             </div>
                             <div class="stat-item">
-                                <h4>24/7</h4>
+                                <h4 class="text-gradient">24/7</h4>
                                 <p>Support</p>
                             </div>
                         </div>
@@ -1037,17 +1156,17 @@ body {
         </section>
 
         <!-- Services Section -->
-        <section id="services" class="services">
+        <section id="services" class="section services">
             <div class="container">
                 <div class="section-header">
-                    <h2 class="section-title">Our Services</h2>
+                    <h2 class="section-title text-gradient">Our Services</h2>
                     <p class="section-subtitle">Comprehensive event decoration services tailored to make your celebrations unforgettable</p>
                 </div>
                 <div class="services-grid">
-                    <div class="service-card">
+                    <div class="service-card card-hover">
                         <div class="service-header">
                             <svg class="service-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <path d="M6 3h12l4 6-10 13L2 9l4-6z"/>
+                                <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
                             </svg>
                             <h3>Wedding Decoration</h3>
                         </div>
@@ -1059,7 +1178,7 @@ body {
                             <li>Lighting Design</li>
                         </ul>
                     </div>
-                    <div class="service-card">
+                    <div class="service-card card-hover">
                         <div class="service-header">
                             <svg class="service-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                 <path d="M8 2v4"/>
@@ -1077,7 +1196,7 @@ body {
                             <li>Ambiance Lighting</li>
                         </ul>
                     </div>
-                    <div class="service-card">
+                    <div class="service-card card-hover">
                         <div class="service-header">
                             <svg class="service-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                 <rect width="18" height="18" x="3" y="3" rx="2" ry="2"/>
@@ -1094,7 +1213,7 @@ body {
                             <li>Photo Corners</li>
                         </ul>
                     </div>
-                    <div class="service-card">
+                    <div class="service-card card-hover">
                         <div class="service-header">
                             <svg class="service-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                 <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
@@ -1115,16 +1234,16 @@ body {
         </section>
 
         <!-- Gallery Section -->
-        <section id="gallery" class="gallery">
+        <section id="gallery" class="section gallery">
             <div class="container">
                 <div class="section-header">
-                    <h2 class="section-title">Our Work Gallery</h2>
+                    <h2 class="section-title text-gradient">Our Work Gallery</h2>
                     <p class="section-subtitle">Explore our portfolio of beautifully decorated events that showcase our creativity and attention to detail</p>
                 </div>
                 <div class="gallery-filters">
                     <button class="filter-btn active" data-filter="wedding">
                         <svg class="filter-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M6 3h12l4 6-10 13L2 9l4-6z"/>
+                            <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
                         </svg>
                         Wedding
                     </button>
@@ -1160,17 +1279,17 @@ body {
         </section>
 
         <!-- Contact Section -->
-        <section id="contact" class="contact">
+        <section id="contact" class="section contact">
             <div class="container">
                 <div class="section-header">
-                    <h2 class="section-title">Get In Touch</h2>
+                    <h2 class="section-title text-gradient">Get In Touch</h2>
                     <p class="section-subtitle">Ready to make your event unforgettable? Contact us for a personalized quote and consultation</p>
                 </div>
                 <div class="contact-content">
-                    <div class="contact-card">
+                    <div class="contact-card card-hover">
                         <div class="card-header">
                             <svg class="card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <path d="M6 3h12l4 6-10 13L2 9l4-6z"/>
+                                <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
                             </svg>
                             <h3>Contact Information</h3>
                         </div>
@@ -1185,15 +1304,17 @@ body {
                             </div>
                             <div class="info-item">
                                 <h4>Address</h4>
-                                <p>123 Event Street, Decoration City<br>State - 123456, India</p>
+                                <p>123 Event Street, Decoration City
+State - 123456, India</p>
                             </div>
                             <div class="info-item">
                                 <h4>Working Hours</h4>
-                                <p>Monday - Sunday: 9:00 AM - 8:00 PM<br>Available for emergency consultations</p>
+                                <p>Monday - Sunday: 9:00 AM - 8:00 PM
+Available for emergency consultations</p>
                             </div>
                         </div>
                     </div>
-                    <div class="contact-card">
+                    <div class="contact-card card-hover">
                         <div class="card-header">
                             <svg class="card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                 <path d="M8 2v4"/>
@@ -1214,8 +1335,18 @@ body {
                                 </ul>
                             </div>
                             <div class="contact-buttons">
-                                <button class="btn btn-primary btn-full">Call Now for Free Consultation</button>
-                                <button class="btn btn-outline btn-full">WhatsApp for Quick Response</button>
+                                <button class="btn btn-gradient btn-full">
+                                    <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+                                    </svg>
+                                    Call Now for Free Consultation
+                                </button>
+                                <button class="btn btn-outline btn-full">
+                                    <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="m3 21 1.9-5.7a8.5 8.5 0 1 1 3.8 3.8z"/>
+                                    </svg>
+                                    WhatsApp for Quick Response
+                                </button>
                             </div>
                         </div>
                     </div>
@@ -1230,7 +1361,7 @@ body {
                     <div class="footer-section">
                         <div class="footer-logo">
                             <svg class="footer-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <path d="M6 3h12l4 6-10 13L2 9l4-6z"/>
+                                <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
                             </svg>
                             <h3>Sukhakarta</h3>
                         </div>
@@ -1261,279 +1392,222 @@ body {
             </div>
         </footer>
     </div>
-<!-- src="script.js">-->
+
     <script>
+        // Gallery data
+        const galleryData = {
+            wedding: [
+                {
+                    src: "https://images.unsplash.com/photo-1465146344425-f00d5f5c8f07",
+                    title: "Elegant Wedding Mandap",
+                    description: "Beautiful traditional mandap with floral decorations"
+                },
+                {
+                    src: "https://images.unsplash.com/photo-1500673922987-e212871fec22",
+                    title: "Wedding Stage Setup",
+                    description: "Romantic wedding stage with fairy lights"
+                },
+                {
+                    src: "https://images.unsplash.com/photo-1472396961693-142e6e269027",
+                    title: "Bridal Entrance Decor",
+                    description: "Stunning entrance decoration for the bride"
+                }
+            ],
+            reception: [
+                {
+                    src: "https://images.unsplash.com/photo-1506744038136-46273834b3fb",
+                    title: "Reception Hall Decor",
+                    description: "Elegant reception hall with sophisticated lighting"
+                },
+                {
+                    src: "https://images.unsplash.com/photo-1493962853295-0fd70327578a",
+                    title: "Table Centerpieces",
+                    description: "Beautiful floral centerpieces for reception tables"
+                },
+                {
+                    src: "https://images.unsplash.com/photo-1605810230434-7631ac76ec81",
+                    title: "Reception Backdrop",
+                    description: "Stunning backdrop for photo sessions"
+                }
+            ],
+            mehendi: [
+                {
+                    src: "https://images.unsplash.com/photo-1519389950473-47ba0277781c",
+                    title: "Mehendi Stage Decor",
+                    description: "Colorful and vibrant mehendi ceremony decoration"
+                },
+                {
+                    src: "https://images.unsplash.com/photo-1465146344425-f00d5f5c8f07",
+                    title: "Traditional Seating",
+                    description: "Traditional floor seating arrangement"
+                },
+                {
+                    src: "https://images.unsplash.com/photo-1500673922987-e212871fec22",
+                    title: "Mehendi Photo Corner",
+                    description: "Beautiful photo corner for mehendi celebrations"
+                }
+            ],
+            birthday: [
+                {
+                    src: "https://images.unsplash.com/photo-1472396961693-142e6e269027",
+                    title: "Birthday Party Theme",
+                    description: "Themed birthday party decoration"
+                },
+                {
+                    src: "https://images.unsplash.com/photo-1493962853295-0fd70327578a",
+                    title: "Balloon Arrangements",
+                    description: "Creative balloon decorations for birthdays"
+                },
+                {
+                    src: "https://images.unsplash.com/photo-1506744038136-46273834b3fb",
+                    title: "Birthday Cake Table",
+                    description: "Special cake table decoration"
+                }
+            ]
+        };
 
+        // DOM elements
+        const loadingSpinner = document.getElementById('loading-spinner');
+        const mainContent = document.getElementById('main-content');
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const menuIcon = document.getElementById('menu-icon');
+        const closeIcon = document.getElementById('close-icon');
+        const galleryContent = document.getElementById('gallery-content');
+        const filterBtns = document.querySelectorAll('.filter-btn');
+        const navbar = document.getElementById('navbar');
 
-// Gallery data
-const galleryData = {
-    wedding: [
-        {
-            src: "https://images.unsplash.com/photo-1465146344425-f00d5f5c8f07",
-            title: "Elegant Wedding Mandap",
-            description: "Beautiful traditional mandap with floral decorations"
-        },
-        {
-            src: "https://images.unsplash.com/photo-1500673922987-e212871fec22",
-            title: "Wedding Stage Setup",
-            description: "Romantic wedding stage with fairy lights"
-        },
-        {
-            src: "https://images.unsplash.com/photo-1472396961693-142e6e269027",
-            title: "Bridal Entrance Decor",
-            description: "Stunning entrance decoration for the bride"
+        // Loading spinner
+        window.addEventListener('load', () => {
+            setTimeout(() => {
+                loadingSpinner.style.display = 'none';
+                mainContent.classList.remove('hidden');
+            }, 2000);
+        });
+
+        // Mobile menu toggle
+        let isMobileMenuOpen = false;
+
+        mobileMenuBtn.addEventListener('click', () => {
+            isMobileMenuOpen = !isMobileMenuOpen;
+            
+            if (isMobileMenuOpen) {
+                mobileMenu.classList.remove('hidden');
+                menuIcon.classList.add('hidden');
+                closeIcon.classList.remove('hidden');
+            } else {
+                mobileMenu.classList.add('hidden');
+                menuIcon.classList.remove('hidden');
+                closeIcon.classList.add('hidden');
+            }
+        });
+
+        // Close mobile menu when clicking on links
+        document.querySelectorAll('.mobile-nav-link, .mobile-btn-container .btn').forEach(link => {
+            link.addEventListener('click', closeMobileMenu);
+        });
+
+        // Smooth scrolling functions
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+            closeMobileMenu();
         }
-    ],
-    reception: [
-        {
-            src: "https://images.unsplash.com/photo-1506744038136-46273834b3fb",
-            title: "Reception Hall Decor",
-            description: "Elegant reception hall with sophisticated lighting"
-        },
-        {
-            src: "https://images.unsplash.com/photo-1493962853295-0fd70327578a",
-            title: "Table Centerpieces",
-            description: "Beautiful floral centerpieces for reception tables"
-        },
-        {
-            src: "https://images.unsplash.com/photo-1605810230434-7631ac76ec81",
-            title: "Reception Backdrop",
-            description: "Stunning backdrop for photo sessions"
+
+        function scrollToSection(id) {
+            const element = document.getElementById(id);
+            if (element) {
+                element.scrollIntoView({ behavior: 'smooth' });
+            }
+            closeMobileMenu();
         }
-    ],
-    mehendi: [
-        {
-            src: "https://images.unsplash.com/photo-1519389950473-47ba0277781c",
-            title: "Mehendi Stage Decor",
-            description: "Colorful and vibrant mehendi ceremony decoration"
-        },
-        {
-            src: "https://images.unsplash.com/photo-1465146344425-f00d5f5c8f07",
-            title: "Traditional Seating",
-            description: "Traditional floor seating arrangement"
-        },
-        {
-            src: "https://images.unsplash.com/photo-1500673922987-e212871fec22",
-            title: "Mehendi Photo Corner",
-            description: "Beautiful photo corner for mehendi celebrations"
+
+        function closeMobileMenu() {
+            isMobileMenuOpen = false;
+            mobileMenu.classList.add('hidden');
+            menuIcon.classList.remove('hidden');
+            closeIcon.classList.add('hidden');
         }
-    ],
-    birthday: [
-        {
-            src: "https://images.unsplash.com/photo-1472396961693-142e6e269027",
-            title: "Birthday Party Theme",
-            description: "Themed birthday party decoration"
-        },
-        {
-            src: "https://images.unsplash.com/photo-1493962853295-0fd70327578a",
-            title: "Balloon Arrangements",
-            description: "Creative balloon decorations for birthdays"
-        },
-        {
-            src: "https://images.unsplash.com/photo-1506744038136-46273834b3fb",
-            title: "Birthday Cake Table",
-            description: "Special cake table decoration"
-        }
-    ]
-};
 
-// DOM elements
-const loadingSpinner = document.getElementById('loading-spinner');
-const mainContent = document.getElementById('main-content');
-const mobileMenuBtn = document.getElementById('mobile-menu-btn');
-const mobileMenu = document.getElementById('mobile-menu');
-const menuIcon = document.getElementById('menu-icon');
-const closeIcon = document.getElementById('close-icon');
-const galleryContent = document.getElementById('gallery-content');
-const filterBtns = document.querySelectorAll('.filter-btn');
+        // Gallery functionality
+        let currentFilter = 'wedding';
 
-// Loading spinner
-window.addEventListener('load', () => {
-    setTimeout(() => {
-        loadingSpinner.style.display = 'none';
-        mainContent.classList.remove('hidden');
-    }, 2000);
-});
-
-// Mobile menu toggle
-let isMobileMenuOpen = false;
-
-mobileMenuBtn.addEventListener('click', () => {
-    isMobileMenuOpen = !isMobileMenuOpen;
-    
-    if (isMobileMenuOpen) {
-        mobileMenu.classList.remove('hidden');
-        menuIcon.classList.add('hidden');
-        closeIcon.classList.remove('hidden');
-    } else {
-        mobileMenu.classList.add('hidden');
-        menuIcon.classList.remove('hidden');
-        closeIcon.classList.add('hidden');
-    }
-});
-
-// Close mobile menu when clicking on links
-document.querySelectorAll('.mobile-nav-link, .mobile-btn-container .btn').forEach(link => {
-    link.addEventListener('click', () => {
-        isMobileMenuOpen = false;
-        mobileMenu.classList.add('hidden');
-        menuIcon.classList.remove('hidden');
-        closeIcon.classList.add('hidden');
-    });
-});
-
-// Smooth scrolling functions
-function scrollToTop() {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-    closeMobileMenu();
-}
-
-function scrollToSection(id) {
-    const element = document.getElementById(id);
-    if (element) {
-        element.scrollIntoView({ behavior: 'smooth' });
-    }
-    closeMobileMenu();
-}
-
-function closeMobileMenu() {
-    isMobileMenuOpen = false;
-    mobileMenu.classList.add('hidden');
-    menuIcon.classList.remove('hidden');
-    closeIcon.classList.add('hidden');
-}
-
-// Gallery functionality
-let currentFilter = 'wedding';
-
-function renderGallery(category) {
-    const items = galleryData[category];
-    galleryContent.innerHTML = '';
-    
-    items.forEach((item, index) => {
-        const galleryItem = document.createElement('div');
-        galleryItem.className = 'gallery-item';
-        galleryItem.innerHTML = `
-            <div class="gallery-image">
-                <img src="${item.src}" alt="${item.title}" loading="lazy">
-                <div class="gallery-overlay">
-                    <div class="gallery-overlay-content">
-                        <h4>${item.title}</h4>
-                        <p>${item.description}</p>
+        function renderGallery(category) {
+            const items = galleryData[category];
+            galleryContent.innerHTML = '';
+            
+            items.forEach((item, index) => {
+                const galleryItem = document.createElement('div');
+                galleryItem.className = 'gallery-item card-hover';
+                galleryItem.innerHTML = `
+                    <div class="gallery-image">
+                        <img src="${item.src}" alt="${item.title}" loading="lazy">
+                        <div class="gallery-overlay">
+                            <div class="gallery-overlay-content">
+                                <h4>${item.title}</h4>
+                                <p>${item.description}</p>
+                            </div>
+                        </div>
                     </div>
-                </div>
-            </div>
-        `;
-        galleryContent.appendChild(galleryItem);
-    });
-}
-
-// Filter button event listeners
-filterBtns.forEach(btn => {
-    btn.addEventListener('click', () => {
-        const filter = btn.getAttribute('data-filter');
-        
-        // Update active button
-        filterBtns.forEach(b => b.classList.remove('active'));
-        btn.classList.add('active');
-        
-        // Update gallery
-        currentFilter = filter;
-        renderGallery(filter);
-    });
-});
-
-// Initialize gallery
-renderGallery(currentFilter);
-
-// Navbar scroll effect
-window.addEventListener('scroll', () => {
-    const navbar = document.getElementById('navbar');
-    if (window.scrollY > 50) {
-        navbar.style.backgroundColor = 'rgba(255, 255, 255, 0.98)';
-    } else {
-        navbar.style.backgroundColor = 'rgba(255, 255, 255, 0.95)';
-    }
-});
-
-// Add scroll animations
-const observerOptions = {
-    threshold: 0.1,
-    rootMargin: '0px 0px -50px 0px'
-};
-
-const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            entry.target.style.opacity = '1';
-            entry.target.style.transform = 'translateY(0)';
+                `;
+                galleryContent.appendChild(galleryItem);
+            });
         }
-    });
-}, observerOptions);
 
-// Observe elements for scroll animations
-document.addEventListener('DOMContentLoaded', () => {
-    const animatedElements = document.querySelectorAll('.service-card, .gallery-item, .contact-card, .stats-card');
-    
-    animatedElements.forEach(el => {
-        el.style.opacity = '0';
-        el.style.transform = 'translateY(20px)';
-        el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-        observer.observe(el);
-    });
-});
+        // Filter button event listeners
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                const filter = btn.getAttribute('data-filter');
+                
+                // Update active button
+                filterBtns.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                
+                // Update gallery
+                currentFilter = filter;
+                renderGallery(filter);
+            });
+        });
 
-// Add some interactive feedback for buttons
-document.querySelectorAll('.btn').forEach(btn => {
-    btn.addEventListener('click', function(e) {
-        // Create ripple effect
-        const ripple = document.createElement('span');
-        const rect = this.getBoundingClientRect();
-        const size = Math.max(rect.width, rect.height);
-        const x = e.clientX - rect.left - size / 2;
-        const y = e.clientY - rect.top - size / 2;
-        
-        ripple.style.width = ripple.style.height = size + 'px';
-        ripple.style.left = x + 'px';
-        ripple.style.top = y + 'px';
-        ripple.classList.add('ripple');
-        
-        this.appendChild(ripple);
-        
-        setTimeout(() => {
-            ripple.remove();
-        }, 600);
-    });
-});
+        // Initialize gallery
+        renderGallery(currentFilter);
 
-// Add ripple effect styles
-const style = document.createElement('style');
-style.textContent = `
-    .btn {
-        position: relative;
-        overflow: hidden;
-    }
-    
-    .ripple {
-        position: absolute;
-        border-radius: 50%;
-        background: rgba(255, 255, 255, 0.3);
-        transform: scale(0);
-        animation: ripple-animation 0.6s linear;
-        pointer-events: none;
-    }
-    
-    @keyframes ripple-animation {
-        to {
-            transform: scale(4);
-            opacity: 0;
-        }
-    }
-`;
-document.head.appendChild(style);
+        // Navbar scroll effect
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
 
-console.log('Sukhakarta Event Decoration website loaded successfully!');
+        // Intersection Observer for animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Initialize scroll animations
+        document.addEventListener('DOMContentLoaded', () => {
+            const animatedElements = document.querySelectorAll('.card-hover, .section-header');
+            
+            animatedElements.forEach(el => {
+                el.style.opacity = '0';
+                el.style.transform = 'translateY(20px)';
+                el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+                observer.observe(el);
+            });
+        });
+
+        console.log('Sukhakarta Event Decoration website loaded successfully!');
     </script>
 </body>
-
 </html>
